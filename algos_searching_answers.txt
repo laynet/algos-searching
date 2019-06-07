@@ -1,0 +1,61 @@
+1. What is a real-life scenario that uses linear search?
+    any time you are looking through something one by one, like when I'm looking for a book on my shelf which isn't in sorted order.
+
+2. What is a real-life scenario that uses binary search?
+    looking through a list of contacts in my phone. I'll scroll to the letter I need then search through the names in that letter sorted alphabetically.
+
+3. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search?
+    7
+4. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?
+    3
+5. Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+    i would choose linear because binary searches need a sorted collection
+
+6. Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning
+    i would choose binary because it would be faster and cost less
+
+PROGRAMMING ASSIGNMENT
+
+1. You and a friend have set a wager to see who can find the word "Albatross" in the dictionary the fastest. Write a program to allow you to win the bet.
+    let arr = ["Abalone","Acid","Adendum","Affix", "Ajax","Albatross","Avatar","Bowling","Cheese", "Dexterity"]
+
+function binarySearch(array, target){
+  let startIndex = 0;
+  let endIndex = array.length - 1;
+  while(startIndex <= endIndex) {
+    let middleIndex = Math.floor((startIndex + endIndex) / 2);
+    if(target === array[middleIndex]) {
+      return console.log("Target was found at index " + middleIndex);
+    }
+    if(target > array[middleIndex]) {
+      console.log("Searching the right side of Array")
+      startIndex = middleIndex + 1;
+    }
+    if(target < array[middleIndex]) {
+      console.log("Searching the left side of array")
+      endIndex = middleIndex - 1;
+    }
+    else {
+      console.log("Not Found this loop iteration. Looping another iteration.")
+    }
+  }
+  
+  console.log("Target value not found in array");
+}
+
+console.log(binarySearch(arr, "Albatross"))
+
+2. You work at a pet store, and a child has asked you to net the only white-spotted goldfish from the fish tank. Write a program that will help you net the right fish.
+
+let arr = ["shark", "guppy", "stingray", "white-spotted goldfish", "gold fish", "blue fish"]
+
+function linearSearch(array, target){
+  for(let i = 0; i < array.length; i++){
+    if(array[i] === target) {
+      return "you've netted the white-spotted goldfish"
+    }
+  }
+  return "sorry, no fish to be found";
+}
+
+console.log(linearSearch(arr, "white-spotted goldfish"))
